@@ -5,8 +5,8 @@ fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date
     .then(res => res.json())
     .then(artData => { 
         console.log(artData.data)
-        artData.data.forEach(paintingCard => {
-        renderOnePainting(paintingCard)
+        artData.data.forEach(paintingData => {
+        renderOnePainting(paintingData)
         })    
     })
 // tried it this way to see if it worked.
@@ -17,24 +17,24 @@ fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date
 //     console.log(paintingCard)
 //  }   
 
-function renderOnePainting(paintingCard) {
+function renderOnePainting(paintingData) {
     paintingCard = document.createElement('li')
     paintingCard.className = 'painting-card'
     document.querySelector("#painting-collection").append(paintingCard) 
     //  console.log(paintingCard)  
 
     let paintingTitle = document.createElement('h4')
-    paintingTitle.textContent = paintingCard.title
+    paintingTitle.textContent = paintingData.title
     paintingCard.append(paintingTitle)
     //  console.log(paintingTitle)
      
     let paintingArtist = document.createElement('h4')
-    paintingArtist.textContent = 'name'
+    paintingArtist.textContent = paintingData.artist_display
     paintingCard.append(paintingArtist)
     // console.log(paintingArtist)
     
     let paintingDate = document.createElement('h4')
-    paintingDate.textContent = 'date'
+    paintingDate.textContent = paintingData.date_display
     paintingCard.append(paintingDate)
     // console.log(paintingDate)
 }
@@ -46,9 +46,9 @@ inputForm.addEventListener("submit", (e) => {
     const input = document.querySelector("input#inputComment")
     console.log(input.value)
 })
-
-
 })
+
+
 
 // This fetch is the first getting the whole load of data for group of twelve.
 // fetch('https://api.artic.edu/api/v1/artworks') 
