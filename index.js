@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("The DOM has loaded")
 
+
 fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number')
     .then(res => res.json())
     .then(artData => { 
@@ -9,19 +10,12 @@ fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date
         renderOnePainting(paintingData)
         })    
     })
-// tried it this way to see if it worked.
-//  function renderOnePainting(paintingCard) {
-//     paintingCard = document.createElement('li')
-//     paintingCard.textContent = paintingCard.title
-//     document.querySelector("#painting-collection").append(paintingCard)
-//     console.log(paintingCard)
-//  }   
 
 function renderOnePainting(paintingData) {
     paintingCard = document.createElement('li')
     paintingCard.className = 'painting-card'
     document.querySelector("#painting-collection").append(paintingCard) 
-    //  console.log(paintingCard)  
+     console.log(paintingCard)  
 
     let paintingTitle = document.createElement('h4')
     paintingTitle.textContent = paintingData.title
@@ -38,16 +32,25 @@ function renderOnePainting(paintingData) {
     paintingCard.append(paintingDate)
     // console.log(paintingDate)
 }
+ 
 
+//I would like to put a comment form for each paintingCard.  Or, another way is to make sure that the comment form can be applied to the painting the user wants to comment on by keeping their comments.  If I do that I may need to display the painting ID number.  I don't want to get too complicated, need to keep this SPA simple so I can complete it quickly.  Time is of the essence, in this case.  I get the material and supremely enjoy the process herein, but I am way behind in the course schedule due to circumstances that were beyond my control.
 const inputForm = document.querySelector("form")
 
 inputForm.addEventListener("submit", (e) => {
     e.preventDefault()
-    const input = document.querySelector("input#inputComment")
-    console.log(input.value)
+     addUserComments(e.target["inputComment"].value)
+}) 
+function addUserComments(comments) {
+    let li = document.createElement('li')
+    let btn = document.createElement('button')
+    btn.textContent = 'x'
+    li.textContent = comments
+    li.append(btn)
+    document.getElementById('comments').append(li)
+    btn.addEventListener('click', () => li.remove())
+}
 })
-})
-
 
 
 // This fetch is the first getting the whole load of data for group of twelve.
@@ -88,3 +91,20 @@ inputForm.addEventListener("submit", (e) => {
 //I added the images to my HTML so they are displayed on the page.  I did this by fetching the image id info in the manner outlined by the API.  The images come separately than the other info previously fetched.
 
 //I had to add the addEventListener DOMContentLoaded at the top, so that the images would appear and the info would load in the proper order.
+
+// const EMPTY_HEART = '♡'
+// const FULL_HEART = '♥'
+
+// document.addEventListener("click", (e) => {
+//     const heart = e.target
+//     fetch() 
+//     .then(() => { 
+//           if (heart.innerText === EMPTY_HEART) {
+//          heart.innerText = FULL_HEART
+//          heart.className = "activated-heart"
+//           } else {
+//          heart.innerText = EMPTY_HEART
+//          heart.className = ""
+//           }
+//         })
+// })       
