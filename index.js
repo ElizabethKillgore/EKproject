@@ -97,3 +97,5 @@ fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date
 
 //I had to add the addEventListener DOMContentLoaded at the top, so that the images would appear and the info would load asynchronously.
 
+//Important note here:  I realize that there is an extra forward slash / on my page and in the URL but to try and fix this I find risky and I am trying to stay in the course and not get timed out of the course, since I am well over 100 days behind.
+
