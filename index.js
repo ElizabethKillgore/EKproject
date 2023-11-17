@@ -38,6 +38,8 @@ const inputForm = document.querySelector("form")
 inputForm.addEventListener("submit", (e) => {
     e.preventDefault()
      addUserComments(e.target["inputComment"].value)
+     e.target["inputComment"].value = ""
+
 }) 
 
 function addUserComments(comments) {
