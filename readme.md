@@ -9,3 +9,5 @@ Please note the following acknowledgements:
 The images used in this application come via Art Institute of Chicago.  Helpful suggestions and advice for the project can be attributed to Ryan Parrish, Instructor at Flatiron School.  
 
 Contriubtions are not requested at this time.  This application is a work in progress, but in the interest of time, is submitted as is.
+
+To use this, you just open index.html in your browser.
