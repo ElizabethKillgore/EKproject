@@ -55,7 +55,6 @@ function addUserComments(comments) {
 
 //I am mindful not to use repetitive code, as per the instructions for this final project, but I include all of the other fetches, hereinbelow, to show the process and all of the info that I received for future reference. 
 
-//I have used the images from The Art Institute of Chicago as a border for art decoration for the website
 //I have put a comment form for users, with an event listener, to comment on a specific piece of art of the twelve fetched.  I want to make sure that the comment form can be applied to the paintings or pieces of art the user wants to comment and then let the user keep their comments, as they add more.  They can keep a list of their comments, or erase them individually, with another event listener.  I would have done a POST, so when the page refreshes the comments stay until erased by the user, but trying to keep it simple. 
 
 //This fetch is the first getting the whole load of data for group of twelve.
@@ -95,9 +94,7 @@ fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date
 //Alright, success, that worked.  I got only the array data I wanted.  Next I have to get this data displayed.
 //Ok, that worked.
 
-//I added the images to my HTML so they are displayed on the page.  I did this by fetching the image id info in the manner outlined by the API.  The images come separately than the other info previously fetched.
+//I had to add the addEventListener DOMContentLoaded at the top, so that the images would appear and the info would load timely.
 
-//I had to add the addEventListener DOMContentLoaded at the top, so that the images would appear and the info would load asynchronously.
-
-//Important note here:  I realize that there is an extra forward slash / on my page and in the URL but to try and fix this I find risky and I am trying to stay in the course and not get timed out of the course, since I am well over 100 days behind.
+//Important note here:  I realize that there is an extra forward slash / on my page and in the URL but to try and fix this I find risky and I am trying to stay in the course and not get timed out of the course.
 
