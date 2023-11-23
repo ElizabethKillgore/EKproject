@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     console.log("The DOM has loaded")
 
 
 fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number')
     .then(res => res.json())
-    .then(artData => { 
+    .then(artData => {
         console.log(artData.data)
         artData.data.forEach(paintingData => {
         renderOnePainting(paintingData)
@@ -17,17 +17,17 @@ function renderOnePainting(paintingData) {
     document.querySelector("#painting-collection").append(paintingCard) 
      console.log(paintingCard)  
 
-    let paintingTitle = document.createElement('h4')
+    const paintingTitle = document.createElement('h4')
     paintingTitle.textContent = paintingData.title
     paintingCard.append(paintingTitle)
     //  console.log(paintingTitle)
      
-    let paintingArtist = document.createElement('h4')
+    const paintingArtist = document.createElement('h4')
     paintingArtist.textContent = paintingData.artist_display
     paintingCard.append(paintingArtist)
     // console.log(paintingArtist)
     
-    let paintingDate = document.createElement('h4')
+    const paintingDate = document.createElement('h4')
     paintingDate.textContent = paintingData.date_display
     paintingCard.append(paintingDate)
     // console.log(paintingDate)
@@ -43,8 +43,8 @@ inputForm.addEventListener("submit", (e) => {
 }) 
 
 function addUserComments(comments) {
-    let li = document.createElement('li')
-    let btn = document.createElement('button')
+    const li = document.createElement('li')
+    const btn = document.createElement('button')
     btn.textContent = 'x'
     li.textContent = comments
     li.append(btn)
