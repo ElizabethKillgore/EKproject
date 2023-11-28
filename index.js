@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("The DOM has loaded")
 
 
-fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number')
+    fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number')
     .then(res => res.json())
     .then(artData => {
         console.log(artData.data)
@@ -14,8 +14,8 @@ fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date
 function renderOnePainting(paintingData) {
     paintingCard = document.createElement('li')
     paintingCard.className = 'painting-card'
-    document.querySelector("#painting-collection").append(paintingCard) 
-     console.log(paintingCard)  
+    document.querySelector("#painting-collection").append(paintingCard)
+    console.log(paintingCard)  
 
     const paintingTitle = document.createElement('h4')
     paintingTitle.textContent = paintingData.title
@@ -32,7 +32,7 @@ function renderOnePainting(paintingData) {
     paintingCard.append(paintingDate)
     // console.log(paintingDate)
 }
- 
+
 const inputForm = document.querySelector("form")
 
 inputForm.addEventListener("submit", (e) => {
@@ -40,7 +40,7 @@ inputForm.addEventListener("submit", (e) => {
      addUserComments(e.target["inputComment"].value)
      e.target["inputComment"].value = ""
 
-}) 
+    }) 
 
 function addUserComments(comments) {
     const li = document.createElement('li')
